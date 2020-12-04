@@ -39,17 +39,19 @@ download_data.sh  __init__.py  json_2.1.0 json_feat_2.1.0 preprocess.py  README.
 ```
 
 ## Training
+### Cmd
 ```
 python models/train/train_seq2seq.py --dout exp/ --gpu --save_every_epoch
 ```
 
 ### Example
-If you want train MOCA and save the weights for all epochs, you may use the command below.
+If you want train MOCA and save the weights for all epochs in "exp/moca", you may use the command below.
 ```
 python models/train/train_seq2seq.py --dout exp/moca --gpu --save_every_epoch
 ```
 
 ## Evaluation
+### Cmd
 ```
 python models/eval/eval_seq2seq.py --model_path "exp/moca/best_seen.pth" --eval_split valid_seen --gpu --num_threads 4
 ```
@@ -61,6 +63,7 @@ python models/eval/eval_seq2seq.py --model_path "exp/pretrained/pretrained.pth" 
 ```
 
 ## Submission
+### Cmd
 ```
 python models/eval/leaderboard.py --model_path  --num_threads 4
 ```
