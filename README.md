@@ -9,6 +9,8 @@
 
 <b> MOCA </b> (<b>M</b>odular <b>O</b>bject-<b>C</b>entric <b>A</b>pproach) is a modular architecture that decouples a task into visual perception and action policy.
 
+<img src="doc/moca.png" alt="MOCA">
+
 ## Dataset
 To download the ALFRED dataset, please refer to the repository of <a href="https://github.com/askforalfred/alfred"> ALFRED </a>.
 
