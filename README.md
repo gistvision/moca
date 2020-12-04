@@ -11,8 +11,32 @@
 
 <img src="media/moca.png" alt="MOCA">
 
+## Environment
+### Clone repo
+```
+$ git clone https://github.com/gistvision/moca.git moca
+$ export ALFRED_ROOT=$(pwd)/moca
+```
+
+### Install requirements
+```
+$ virtualenv -p $(which python3) --system-site-packages moca_env
+$ source moca_env/bin/activate
+
+$ cd $ALFRED_ROOT
+$ pip install --upgrade pip
+$ pip install -r requirements.txt
+```
+
 ## Dataset
-To download the ALFRED dataset, please refer to the repository of <a href="https://github.com/askforalfred/alfred"> ALFRED </a>.
+### ALFRED Dataset
+To download the ALFRED dataset,
+Note that this includes expert trajectories with color-swapped frames.
+
+For details, please refer to the repository of <a href="https://github.com/askforalfred/alfred">ALFRED</a>.
+```
+
+```
 
 ## Training
 ```
@@ -24,12 +48,34 @@ python models/train/train_seq2seq.py --dout exp/moca --gpu --save_every_epoch
 python models/eval/eval_seq2seq.py --model_path "exp/moca/best_seen.pth" --eval_split valid_seen --gpu --num_threads 4
 ```
 
+To 
+The model can be evaluated in the unseen environment by changing "valid_seen" to "valid_unseen."
+```
+python models/eval/eval_seq2seq.py --model_path "exp/pretrained/pretrained.pth" --eval_split valid_seen --gpu --num_threads 4
+```
+
 ## Submission
 ```
 python models/eval/leaderboard.py --model_path "exp/moca/best_seen.pth" --num_threads 4
 ```
 
+## Hardware 
+Tested on:
+- **GPU** - GTX 2080 Ti (12GB)
+- **CPU** - Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz
+- **RAM** - 32GB
+- **OS** - Ubuntu 18.04
+
+## License
+MIT License
+
 ## Citation
 ```
-@citation
+@article{MOCA21,
+  title ={{MOCA: A Modular Object-Centric Approach for Interactive Instruction Following}},
+  author={{Kunal Pratap Singh* and Suvaansh Bhambri* and Byeonghwi Kim*} and Roozbeh Mottaghi and Jonghyun Choi},
+  journal = {arXiv},
+  year = {2021},
+  url  = {https://arxiv.org/abs/}
+}
 ```
