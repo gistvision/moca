@@ -39,7 +39,7 @@ For details of the ALFRED dataset, see the repository of <a href="https://github
 $ cd $ALFRED_ROOT/data
 $ sh download_data.sh
 ```
-**Note**: Note that the downloaded data includes expert trajectories with both original and color-swapped frames.
+**Note**: The downloaded data includes expert trajectories with both original and color-swapped frames.
 
 ### Pretrained MOCA
 We provide our pretrained weight used for the experiments for the paper.
