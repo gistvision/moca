@@ -29,16 +29,22 @@ $ pip install -r requirements.txt
 ```
 
 ## Dataset
-### ALFRED Dataset
-To download the ALFRED dataset,
-Note that this includes expert trajectories with color-swapped frames.
-
+Note that this includes expert trajectories with both original and color-swapped frames.
 For details, please refer to the repository of <a href="https://github.com/askforalfred/alfred">ALFRED</a>.
-```
-
+```bash
+$ cd $ALFRED_ROOT/data
+$ sh download_data.sh
+$ ls
+download_data.sh  __init__.py  json_2.1.0 json_feat_2.1.0 preprocess.py  README.md  splits
 ```
 
 ## Training
+```
+python models/train/train_seq2seq.py --dout exp/ --gpu --save_every_epoch
+```
+
+### Example
+If you want train MOCA and save the weights for all epochs, you may use the command below.
 ```
 python models/train/train_seq2seq.py --dout exp/moca --gpu --save_every_epoch
 ```
@@ -48,15 +54,21 @@ python models/train/train_seq2seq.py --dout exp/moca --gpu --save_every_epoch
 python models/eval/eval_seq2seq.py --model_path "exp/moca/best_seen.pth" --eval_split valid_seen --gpu --num_threads 4
 ```
 
-To 
-The model can be evaluated in the unseen environment by changing "valid_seen" to "valid_unseen."
+### Example
+If you want to evaluate our pretrained model saved in "exp/pretrained/pretrained.pth" in the seen validation, you may use the command below.
 ```
 python models/eval/eval_seq2seq.py --model_path "exp/pretrained/pretrained.pth" --eval_split valid_seen --gpu --num_threads 4
 ```
 
 ## Submission
 ```
-python models/eval/leaderboard.py --model_path "exp/moca/best_seen.pth" --num_threads 4
+python models/eval/leaderboard.py --model_path  --num_threads 4
+```
+
+### Example
+If you want to submit our pretrained model, "exp/pretrained/pretrained.pth", to the leaderboard, you may use the command below.
+```
+python models/eval/leaderboard.py --model_path "exp/pretrained/pretrained.pth" --num_threads 4
 ```
 
 ## Hardware 
