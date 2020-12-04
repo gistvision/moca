@@ -31,41 +31,42 @@ $ pip install -r requirements.txt
 
 ## Dataset
 Dataset includes visual features extracted by ResNet-18 with natural language annotations.
-Note that this includes expert trajectories with both original and color-swapped frames.
 For details of the ALFRED dataset, please refer to the repository of <a href="https://github.com/askforalfred/alfred">ALFRED</a>.
+**Note**: Note that this includes expert trajectories with both original and color-swapped frames.
 ```bash
 $ cd $ALFRED_ROOT/data
 $ sh download_data.sh
-$ ls
-download_data.sh  __init__.py  json_2.1.0 json_feat_2.1.0 preprocess.py  README.md  splits
 ```
 
 ## Training
-### Cmd
+To train MOCA, run `train_seq2seq.py` with hyper-parameters below. <br>
+**Note**: As mentioned in the repository of <a href="https://github.com/askforalfred/alfred/tree/master/models">ALFRED</a>, run with `--preprocess` only once for preprocessed json files. <br>
+**Note**: All hyperparameters used for the experiments in the paper are set as default.
 ```
-python models/train/train_seq2seq.py --dout exp/ --gpu --save_every_epoch
+python models/train/train_seq2seq.py --data <path_to_dataset> --model seq2seq_im_mask --dout <path_to_save_weight> --splits data/splits/oct21.json --gpu --batch <batch_size> --pm_aux_loss_wt <pm_aux_loss_wt_coeff> --subgoal_aux_loss_wt <subgoal_aux_loss_wt_coeff> --preprocess
 ```
 
-### Example
-If you want train MOCA and save the weights for all epochs in "exp/moca", you may use the command below.
+For example, if you want train MOCA and save the weights for all epochs in "exp/moca" with all hyperparameters used in the experiments in the paper, you may use the command below. <br>
+**Note**: The option, `--save_every_epoch`, saves weights for all epochs and therefore could take a lot of space.
 ```
 python models/train/train_seq2seq.py --dout exp/moca --gpu --save_every_epoch
 ```
 
 ## Evaluation
-### Cmd
+To evaluate MOCA, run `eval_seq2seq.py` with hyper-parameters below. <br>
+**Note**: All hyperparameters used for the experiments in the paper are set as default.
 ```
-python models/eval/eval_seq2seq.py --model_path "exp/moca/best_seen.pth" --eval_split valid_seen --gpu --num_threads 4
+python models/eval/eval_seq2seq.py --data <path_to_dataset> --model models.model.seq2seq_im_mask --model_path <path_to_weight> --eval_split <eval_split> --gpu --num_threads <thread_num>
 ```
 
-### Example
-If you want to evaluate our pretrained model saved in "exp/pretrained/pretrained.pth" in the seen validation, you may use the command below.
+If you want to evaluate our pretrained model saved in `exp/pretrained/pretrained.pth` in the `seen` validation, you may use the command below.
 ```
 python models/eval/eval_seq2seq.py --model_path "exp/pretrained/pretrained.pth" --eval_split valid_seen --gpu --num_threads 4
 ```
 
 ## Submission
-### Cmd
+To evaluate MOCA, run `eval_seq2seq.py` with hyper-parameters below. <br>
+**Note**: All hyperparameters used for the experiments in the paper are set as default.
 ```
 python models/eval/leaderboard.py --model_path  --num_threads 4
 ```
@@ -77,7 +78,7 @@ python models/eval/leaderboard.py --model_path "exp/pretrained/pretrained.pth" -
 ```
 
 ## Hardware 
-Tested on:
+Trained and Tested on:
 - **GPU** - GTX 2080 Ti (12GB)
 - **CPU** - Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz
 - **RAM** - 32GB
