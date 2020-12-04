@@ -188,7 +188,10 @@ class ConvFrameMaskDecoder(nn.Module):
         return results
 
 
-# 
+# Thanks to the released code by Federico Landi et al.,
+#  dynamic filters are easily exploited.
+# see the repo below for more details of dynamic convolution.
+#  https://github.com/aimagelab/DynamicConv-agent
 ######################################################################################################################
 class ScaledDotAttn(nn.Module):
     def __init__(self, dim_key_in=1024, dim_key_out=128, dim_query_in=1024 ,dim_query_out=128):
