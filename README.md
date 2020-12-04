@@ -1,15 +1,16 @@
-# MOCA: A Modular Object-Centric Approach for Interactive Instruction Following
+# MOCA
+<a href=""> <b> MOCA: A Modular Object-Centric Approach for Interactive Instruction Following </b> </a>
+<br>
 <a href=""> Kunal Pratap Singh* </a>,
 <a href=""> Suvaansh Bhambri* </a>,
 <a href=""> Byeonghwi Kim* </a>,
 <a href="http://roozbehm.info/"> Roozbeh Mottaghi </a>,
 <a href="http://ppolon.github.io/"> Jonghyun Choi </a>
 
-## Introduction
-This is introduction
+<b> MOCA </b> (<b>M</b>odular <b>O</b>bject-<b>C</b>entric <b>A</b>pproach) is a modular architecture that decouples a task into visual perception and action policy.
 
 ## Dataset
-How to get dataset
+To download the ALFRED dataset, please refer to the repository of <a href="https://github.com/askforalfred/alfred"> ALFRED </a>.
 
 ## Training
 ```
