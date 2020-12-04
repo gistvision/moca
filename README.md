@@ -14,7 +14,7 @@ The action policy module (APM) is responsiblefor sequential action prediction, w
 
 
 ## Environment
-### Clone repo
+### Clone repository
 ```
 $ git clone https://github.com/gistvision/moca.git moca
 $ export ALFRED_ROOT=$(pwd)/moca
