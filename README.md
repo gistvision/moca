@@ -9,6 +9,7 @@
 
 <b> MOCA </b> (<b>M</b>odular <b>O</b>bject-<b>C</b>entric <b>A</b>pproach) is a modular architecture that decouples a task into visual perception and action policy.
 
+
 <img src="media/moca.png" alt="MOCA">
 
 ## Environment
