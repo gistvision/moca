@@ -42,7 +42,7 @@ $ sh download_data.sh
 **Note**: The downloaded data includes expert trajectories with both original and color-swapped frames.
 
 ### Pretrained MOCA
-We provide our pretrained weight used for the experiments for the paper.
+We provide our pretrained weight used for the experiments in the paper and the leaderboard submission.
 To download the pretrained weight of MOCA, use the command below.
 ```
 $ cd $ALFRED_ROOT/exp/pretrained
@@ -81,9 +81,9 @@ python models/eval/eval_seq2seq.py --model_path "exp/pretrained/pretrained.pth" 
 
 ## Submission
 To submit MOCA to the leaderboard, run `eval_seq2seq.py` with hyper-parameters below.
-This gives 
+This saves `tests_actseqs_dump_<save_time>.json` which is submitted to the leaderboard.
 ```
-python models/eval/leaderboard.py --model_path  --num_threads 4
+python models/eval/leaderboard.py --model_path <path_to_weight> --num_threads 4
 ```
 **Note**: All hyperparameters used for the experiments in the paper are set as default.
 
