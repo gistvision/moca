@@ -87,7 +87,7 @@ python models/eval/leaderboard.py --model_path  --num_threads 4
 ```
 **Note**: All hyperparameters used for the experiments in the paper are set as default.
 
-If you want to submit our pretrained model, "exp/pretrained/pretrained.pth", to the leaderboard, you may use the command below.
+If you want to submit our pretrained model saved in `exp/pretrained/pretrained.pth` to the leaderboard, you may use the command below.
 ```
 python models/eval/leaderboard.py --model_path "exp/pretrained/pretrained.pth" --num_threads 4
 ```
