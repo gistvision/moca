@@ -8,7 +8,7 @@
 <a href="http://ppolon.github.io/"> Jonghyun Choi </a>
 
 <b> MOCA </b> (<b>M</b>odular <b>O</b>bject-<b>C</b>entric <b>A</b>pproach) is a modular architecture that decouples a task into visual perception and action policy.
-
+The action policy module (APM) is responsiblefor sequential action prediction, whereas the visual perception module (VPM) generates pixel-wise interaction maskfor the objects of interest for manipulation.
 
 <img src="media/moca.png" alt="MOCA">
 
@@ -30,8 +30,9 @@ $ pip install -r requirements.txt
 ```
 
 ## Dataset
+Dataset includes visual features extracted by ResNet-18 with natural language annotations.
 Note that this includes expert trajectories with both original and color-swapped frames.
-For details, please refer to the repository of <a href="https://github.com/askforalfred/alfred">ALFRED</a>.
+For details of the ALFRED dataset, please refer to the repository of <a href="https://github.com/askforalfred/alfred">ALFRED</a>.
 ```bash
 $ cd $ALFRED_ROOT/data
 $ sh download_data.sh
