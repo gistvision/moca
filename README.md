@@ -29,13 +29,23 @@ $ pip install --upgrade pip
 $ pip install -r requirements.txt
 ```
 
-## Dataset
+## Download
+### Dataset
 Dataset includes visual features extracted by ResNet-18 with natural language annotations.
-For details of the ALFRED dataset, please refer to the repository of <a href="https://github.com/askforalfred/alfred">ALFRED</a>.
-```bash
+For details of the ALFRED dataset, see the repository of <a href="https://github.com/askforalfred/alfred">ALFRED</a>.
+```
 $ cd $ALFRED_ROOT/data
 $ sh download_data.sh
 ```
+
+### Pretrained MOCA
+We provide our pretrained weight used for the experiments for the paper.
+To download the pretrained weight of MOCA, use the command below.
+```
+$ cd $ALFRED_ROOT/exp/pretrained
+$ sh download_pretrained_weight.sh
+```
+
 **Note**: Note that this includes expert trajectories with both original and color-swapped frames.
 
 
