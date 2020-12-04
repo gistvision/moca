@@ -2,7 +2,7 @@
 
 The ALFRED dataset contains 8k+ expert demostrations with 3 or more language annotations each.
 A trajectory consists of a sequence of expert actions, the corresponding image observations, and language annotations describing segments of the trajectory.
-For the details of the ALFRED dataset such as file structure, see the repository of <a href="https://github.com/askforalfred/alfred">ALFRED</a>.
+For the details of the ALFRED dataset such as file structure, see the repository of <a href="https://github.com/askforalfred/alfred/tree/master/data">ALFRED</a>.
 
 ## Extracting Resnet Features
 ### Resnet Features without Color Swap
