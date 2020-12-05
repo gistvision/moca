@@ -101,21 +101,6 @@ If you want to evaluate our pretrained model saved in `exp/pretrained/pretrained
 python models/eval/eval_seq2seq.py --model_path "exp/pretrained/pretrained.pth" --eval_split valid_seen --gpu --num_threads 4 --subgoals all
 ```
 
-<!--
-## Submission
-To submit MOCA to the leaderboard, run `eval_seq2seq.py` with hyper-parameters below.
-This saves `tests_actseqs_dump_<save_time>.json` which is submitted to the leaderboard.
-```
-python models/eval/leaderboard.py --model_path <path_to_weight> --num_threads 4
-```
-**Note**: All hyperparameters used for the experiments in the paper are set as default.
-
-If you want to submit our pretrained model saved in `exp/pretrained/pretrained.pth` to the leaderboard, you may use the command below.
-```
-python models/eval/leaderboard.py --model_path "exp/pretrained/pretrained.pth" --num_threads 4
-```
--->
-
 
 ## Hardware 
 Trained and Tested on:
