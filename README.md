@@ -78,7 +78,7 @@ If you want to evaluate our pretrained model saved in `exp/pretrained/pretrained
 python models/eval/eval_seq2seq.py --model_path "exp/pretrained/pretrained.pth" --eval_split valid_seen --gpu --num_threads 4
 ```
 
-
+<!--
 ## Submission
 To submit MOCA to the leaderboard, run `eval_seq2seq.py` with hyper-parameters below.
 This saves `tests_actseqs_dump_<save_time>.json` which is submitted to the leaderboard.
@@ -91,11 +91,12 @@ If you want to submit our pretrained model saved in `exp/pretrained/pretrained.p
 ```
 python models/eval/leaderboard.py --model_path "exp/pretrained/pretrained.pth" --num_threads 4
 ```
+-->
 
 
 ## Hardware 
 Trained and Tested on:
-- **GPU** - GTX 2080 Ti (12GB)
+- **GPU** - GTX 2080 Ti (11GB)
 - **CPU** - Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz
 - **RAM** - 32GB
 - **OS** - Ubuntu 18.04
