@@ -7,7 +7,7 @@ import progressbar
 from vocab import Vocab
 from model.seq2seq import Module as model
 from gen.utils.py_util import remove_spaces_and_lower
-from gen.utils.game_util import sample_templated_task_desc_from_traj_data
+
 
 class Dataset(object):
 
@@ -42,7 +42,6 @@ class Dataset(object):
         '''
         for k, d in splits.items():
             print('Preprocessing {}'.format(k))
-            train_mode = 'test' not in k
 
             # debugging:
             if self.args.fast_epoch:
@@ -61,14 +60,12 @@ class Dataset(object):
                 # root & split
                 traj['root'] = os.path.join(self.args.data, task['task'])
                 traj['split'] = k
-                traj['repeat_idx'] = r_idx
 
                 # numericalize language
-                use_templated_goals = self.args.use_templated_goals and train_mode # templated goals are not available for the test set
-                self.process_language(ex, traj, r_idx, use_templated_goals=use_templated_goals)
+                self.process_language(ex, traj, r_idx)
 
                 # numericalize actions for train/valid splits
-                if train_mode: # expert actions are not available for the test set
+                if 'test' not in k: # expert actions are not available for the test set
                     self.process_actions(ex, traj)
 
                 # check if preprocessing storage folder exists
@@ -90,20 +87,11 @@ class Dataset(object):
         torch.save(self.vocab, vocab_data_path)
 
 
-    def process_language(self, ex, traj, r_idx, use_templated_goals=False):
-        # goal instruction
-        if use_templated_goals:
-            task_desc = sample_templated_task_desc_from_traj_data(traj)
-        else:
-            task_desc = ex['turk_annotations']['anns'][r_idx]['task_desc']
-
-        # step-by-step instructions
-        high_descs = ex['turk_annotations']['anns'][r_idx]['high_descs']
-
+    def process_language(self, ex, traj, r_idx):
         # tokenize language
         traj['ann'] = {
-            'goal': revtok.tokenize(remove_spaces_and_lower(task_desc)) + ['<<goal>>'],
-            'instr': [revtok.tokenize(remove_spaces_and_lower(x)) for x in high_descs] + [['<<stop>>']],
+            'goal': revtok.tokenize(remove_spaces_and_lower(ex['turk_annotations']['anns'][r_idx]['task_desc'])) + ['<<goal>>'],
+            'instr': [revtok.tokenize(remove_spaces_and_lower(x)) for x in ex['turk_annotations']['anns'][r_idx]['high_descs']] + [['<<stop>>']],
             'repeat_idx': r_idx
         }
 

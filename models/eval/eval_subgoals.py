@@ -89,8 +89,15 @@ class EvalSubgoals(Eval):
         maskrcnn.load_state_dict(torch.load('weight_maskrcnn.pt'))
         maskrcnn = maskrcnn.cuda()
 
+        prev_image = None
+        prev_action = None
+        nav_actions = ['MoveAhead_25', 'RotateLeft_90', 'RotateRight_90', 'LookDown_15', 'LookUp_15']
+        
+        prev_class = 0
+        prev_center = torch.zeros(2)
+
         # extract language features
-        feat = model.featurize([traj_data], load_mask=False)
+        feat = model.featurize([(traj_data, False)], load_mask=False)
 
         # previous action for teacher-forcing during expert execution (None is used for initialization)
         prev_action = None
@@ -134,23 +141,17 @@ class EvalSubgoals(Eval):
             else:
                 # forward model
                 m_out = model.step(feat, prev_action=prev_action)
-                m_pred = model.extract_preds(m_out, [traj_data], feat, clean_special_tokens=False)
+                m_pred = model.extract_preds(m_out, [(traj_data, False)], feat, clean_special_tokens=False)
                 m_pred = list(m_pred.values())[0]
 
-                # get action and mask
-                #action, mask = m_pred['action_low'], m_pred['action_low_mask'][0]
-                #mask = np.squeeze(mask, axis=0) if model.has_interaction(action) else None
-
                 # action prediction
-                if args.GTaction:
-                    if t == len(expert_init_actions): # GT doesn't have the STOP token.
-                        break
-                    action = expert_init_actions[t]['action']
-                else:
-                    m_pred = model.extract_preds(m_out, [traj_data], feat, clean_special_tokens=False)
-                    m_pred = list(m_pred.values())[0]
-                    action = m_pred['action_low']
-                #print('Predicted action: {}'.format(action))
+                action = m_pred['action_low']
+                if prev_image == curr_image and prev_action == action and prev_action in nav_actions and action in nav_actions and action == 'MoveAhead_25':
+                    dist_action = m_out['out_action_low'][0][0].detach().cpu()
+                    idx_rotateR = model.vocab['action_low'].word2index('RotateRight_90')
+                    idx_rotateL = model.vocab['action_low'].word2index('RotateLeft_90')
+                    action = 'RotateLeft_90' if dist_action[idx_rotateL] > dist_action[idx_rotateR] else 'RotateRight_90'
+
                 if action == cls.STOP_TOKEN:
                     print("\tpredicted STOP")
                     break
@@ -159,19 +160,31 @@ class EvalSubgoals(Eval):
                 mask = None
                 if model.has_interaction(action):
                     class_dist = m_pred['action_low_mask'][0]
-                    #print('    Predicted class: {} ({})'.format(classes[np.argmax(class_dist)], np.argmax(class_dist)))
+                    pred_class = np.argmax(class_dist)
+
                     with torch.no_grad():
                         out = maskrcnn([to_tensor(curr_image).cuda()])[0]
+                        for k in out:
+                            out[k] = out[k].detach().cpu()
 
-                    if sum(out['labels'] == np.argmax(class_dist)) == 0:
+                    if sum(out['labels'] == pred_class) == 0:
                         mask = np.zeros((300,300))
                     else:
                         masks = out['masks'][out['labels'] == np.argmax(class_dist)].detach().cpu()
                         scores = out['scores'][out['labels'] == np.argmax(class_dist)].detach().cpu()
+                    
+                        if prev_class != pred_class:
+                            scores, indices = scores.sort(descending=True)
+                            masks = masks[indices]
+                            prev_class = pred_class
+                            prev_center = masks[0].squeeze(dim=0).nonzero().double().mean(dim=0)
+                        else:
+                            cur_centers = torch.stack([m.nonzero().double().mean(dim=0) for m in masks.squeeze(dim=1)])
+                            distances = ((cur_centers - prev_center)**2).sum(dim=1)
+                            distances, indices = distances.sort()
+                            masks = masks[indices]
+                            prev_center = cur_centers[0]
 
-                        scores, indices = scores.sort(descending=True)
-                        #print('    Confidences: {}'.format(scores))
-                        masks = masks[indices]
                         mask = np.squeeze(masks[0].numpy(), axis=0)
 
                 # debug

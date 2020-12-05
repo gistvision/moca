@@ -1,8 +1,8 @@
 # MOCA
 <a href=""> <b> MOCA: A Modular Object-Centric Approach for Interactive Instruction Following </b> </a>
 <br>
-<a href="https://kunalmessi10.github.io/"> Kunal Pratap Singh* </a>,
-<a href="https://www.linkedin.com/in/suvaansh-bhambri-1784bab7/"> Suvaansh Bhambri* </a>,
+<a href=""> Kunal Pratap Singh* </a>,
+<a href=""> Suvaansh Bhambri* </a>,
 <a href=""> Byeonghwi Kim* </a>,
 <a href="http://roozbehm.info/"> Roozbeh Mottaghi </a>,
 <a href="http://ppolon.github.io/"> Jonghyun Choi </a>
@@ -66,7 +66,6 @@ python models/train/train_seq2seq.py --dout exp/moca --gpu --save_every_epoch
 
 
 ## Evaluation
-### Task Evaluation
 To evaluate MOCA, run `eval_seq2seq.py` with hyper-parameters below. <br>
 To evaluate a model in the `seen` or `unseen` environment, pass `valid_seen` or `valid_unseen` to `--eval_split`.
 ```
@@ -79,23 +78,7 @@ If you want to evaluate our pretrained model saved in `exp/pretrained/pretrained
 python models/eval/eval_seq2seq.py --model_path "exp/pretrained/pretrained.pth" --eval_split valid_seen --gpu --num_threads 4
 ```
 
-### Subgoal Evaluation
-To evaluate MOCA in a subgoal, put the option `--subgoals <subgoals>` with subgoals to be evaluated as arguments.
-`--subgoals all` evaluates all 8 subgoals.
-For example, `--subgoals GotoLocation` only evaluates the subgoal, `GotoLocation`.
-For more details, refer to <a href="https://github.com/askforalfred/alfred/tree/master/models">ALFRED</a>.
-```
-python models/eval/eval_seq2seq.py --data <path_to_dataset> --model models.model.seq2seq_im_mask --model_path <path_to_weight> --eval_split <eval_split> --gpu --num_threads <thread_num> --subgoals <subgoals>
-```
-**Note**: All hyperparameters used for the experiments in the paper are set as default.
 
-If you want to evaluate our pretrained model saved in `exp/pretrained/pretrained.pth` in the `seen` validation for all subgoals, you may use the command below.
-```
-python models/eval/eval_seq2seq.py --model_path "exp/pretrained/pretrained.pth" --eval_split valid_seen --gpu --num_threads 4 --subgoals all
-```
-
-
-<!--
 ## Submission
 To submit MOCA to the leaderboard, run `eval_seq2seq.py` with hyper-parameters below.
 This saves `tests_actseqs_dump_<save_time>.json` which is submitted to the leaderboard.
@@ -108,12 +91,11 @@ If you want to submit our pretrained model saved in `exp/pretrained/pretrained.p
 ```
 python models/eval/leaderboard.py --model_path "exp/pretrained/pretrained.pth" --num_threads 4
 ```
--->
 
 
 ## Hardware 
 Trained and Tested on:
-- **GPU** - GTX 2080 Ti (11GB)
+- **GPU** - GTX 2080 Ti (12GB)
 - **CPU** - Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz
 - **RAM** - 32GB
 - **OS** - Ubuntu 18.04

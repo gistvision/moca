@@ -143,7 +143,6 @@ class Leaderboard(EvalTask):
                     mask = np.squeeze(masks[0].numpy(), axis=0)
 
             # use predicted action and mask (if available) to interact with the env
-            #print(action)
             t_success, _, _, err, api_action = env.va_interact(action, interact_mask=mask, smooth_nav=False)
 
             if not t_success:
