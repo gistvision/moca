@@ -221,6 +221,9 @@ class EvalSubgoals(Eval):
             # increment time index
             t += 1
 
+            prev_image = curr_image
+            prev_action = action
+
         # metrics
         pl = float(t - len(expert_init_actions)) + 1 # +1 for last action
         expert_pl = len([ll for ll in traj_data['plan']['low_actions'] if ll['high_idx'] == eval_idx])
