@@ -66,6 +66,7 @@ python models/train/train_seq2seq.py --dout exp/moca --gpu --save_every_epoch
 
 
 ## Evaluation
+### Task Evaluation
 To evaluate MOCA, run `eval_seq2seq.py` with hyper-parameters below. <br>
 To evaluate a model in the `seen` or `unseen` environment, pass `valid_seen` or `valid_unseen` to `--eval_split`.
 ```
@@ -77,6 +78,22 @@ If you want to evaluate our pretrained model saved in `exp/pretrained/pretrained
 ```
 python models/eval/eval_seq2seq.py --model_path "exp/pretrained/pretrained.pth" --eval_split valid_seen --gpu --num_threads 4
 ```
+
+### Subgoal Evaluation
+To evaluate MOCA in a subgoal, put the option `--subgoals <subgoals>` with subgoals to be evaluated as arguments.
+`--subgoals all` evaluates all 8 subgoals.
+For example, `--subgoals GotoLocation` only evaluates the subgoal, `GotoLocation`.
+For more details, refer to <a href="https://github.com/askforalfred/alfred/tree/master/models">ALFRED</a>.
+```
+python models/eval/eval_seq2seq.py --data <path_to_dataset> --model models.model.seq2seq_im_mask --model_path <path_to_weight> --eval_split <eval_split> --gpu --num_threads <thread_num> --subgoals <subgoals>
+```
+**Note**: All hyperparameters used for the experiments in the paper are set as default.
+
+If you want to evaluate our pretrained model saved in `exp/pretrained/pretrained.pth` in the `seen` validation for all subgoals, you may use the command below.
+```
+python models/eval/eval_seq2seq.py --model_path "exp/pretrained/pretrained.pth" --eval_split valid_seen --gpu --num_threads 4 --subgoals all
+```
+
 
 <!--
 ## Submission
