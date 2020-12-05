@@ -1,8 +1,8 @@
 # MOCA
 <a href=""> <b> MOCA: A Modular Object-Centric Approach for Interactive Instruction Following </b> </a>
 <br>
-<a href=""> Kunal Pratap Singh* </a>,
-<a href=""> Suvaansh Bhambri* </a>,
+<a href="https://kunalmessi10.github.io/"> Kunal Pratap Singh* </a>,
+<a href="https://www.linkedin.com/in/suvaansh-bhambri-1784bab7/"> Suvaansh Bhambri* </a>,
 <a href=""> Byeonghwi Kim* </a>,
 <a href="http://roozbehm.info/"> Roozbeh Mottaghi </a>,
 <a href="http://ppolon.github.io/"> Jonghyun Choi </a>
