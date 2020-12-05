@@ -49,6 +49,13 @@ $ cd $ALFRED_ROOT/exp/pretrained
 $ sh download_pretrained_weight.sh
 ```
 
+### Pretrained Mask R-CNN
+We provide our pretrained Mask R-CNN weight used for the experiments in the paper and the leaderboard submission.
+To download the pretrained weight of the Mask R-CNN, use the command below.
+```
+$ cd $ALFRED_ROOT
+$ sh download_maskrcnn.sh
+
 
 ## Training
 To train MOCA, run `train_seq2seq.py` with hyper-parameters below. <br>
