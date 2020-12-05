@@ -55,7 +55,7 @@ To download the pretrained weight of the Mask R-CNN, use the command below.
 ```
 $ cd $ALFRED_ROOT
 $ sh download_maskrcnn.sh
-
+```
 
 ## Training
 To train MOCA, run `train_seq2seq.py` with hyper-parameters below. <br>
