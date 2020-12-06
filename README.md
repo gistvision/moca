@@ -34,7 +34,7 @@ $ pip install -r requirements.txt
 
 ## Download
 ### Dataset
-Dataset includes visual features extracted by ResNet-18 with natural language annotations.
+Dataset includes visual features extracted by ResNet-18 with natural language annotations (~135.5GB after unzipping).
 For details of the ALFRED dataset, see the repository of <a href="https://github.com/askforalfred/alfred">ALFRED</a>.
 ```
 $ cd $ALFRED_ROOT/data
