@@ -13,7 +13,7 @@ fi
 # Download, Unzip, and Remove zip
 echo "Downloading JSONs and Resnet18 feats ..."
 
-wget https://ai2-vision-alfred.s3-us-west-2.amazonaws.com/json_feat_2.1.0.7z
+wget https://alfred-colorswap.s3.us-east-2.amazonaws.com/json_feat_2.1.0.7z
 
 7z x json_feat_2.1.0.7z -y && rm json_feat_2.1.0.7z
 echo "saved folder: json_feat_2.1.0"
