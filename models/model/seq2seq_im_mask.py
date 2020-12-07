@@ -141,21 +141,12 @@ class Module(Base):
 
             # load Resnet features from disk
             if load_frames and not self.test_mode:
+                root = self.get_task_root(ex)
                 if not swapColor:
-                    root = self.get_task_root(ex)
                     im = torch.load(os.path.join(root, self.feat_pt))
-                    keep = [None] * len(ex['plan']['low_actions'])
-                    for i, d in enumerate(ex['images']):
-                        # only add frames linked with low-level actions (i.e. skip filler frames like smooth rotations and dish washing)
-                        if keep[d['low_idx']] is None:
-                            keep[d['low_idx']] = im[i]
-                    keep.append(keep[-1])  # stop frame
-                    feat['frames'].append(torch.stack(keep, dim=0))
                 else:
-                    root = self.get_task_root(ex)
                     im = torch.load(os.path.join(root, 'feat_conv_colorSwap{}.pt'.format(swapColor)))
-                    feat['frames'].append(im[:len(feat['action_low'][-1])])
-
+                feat['frames'].append(im)
 
         # tensorization and padding
         for k, v in feat.items():
