@@ -1,5 +1,5 @@
 # MOCA
-<a href=""> <b> MOCA: A Modular Object-Centric Approach for Interactive Instruction Following </b> </a>
+<a href="http://arxiv.org/abs/2012.03208"> <b> MOCA: A Modular Object-Centric Approach for Interactive Instruction Following </b> </a>
 <br>
 <a href="https://kunalmessi10.github.io/"> Kunal Pratap Singh* </a>,
 <a href="https://www.linkedin.com/in/suvaansh-bhambri-1784bab7/"> Suvaansh Bhambri* </a>,
@@ -117,11 +117,11 @@ MIT License
 
 ## Citation
 ```
-@article{moca21,
+@inproceedings{moca21,
   title ={{MOCA: A Modular Object-Centric Approach for Interactive Instruction Following}},
   author={{Kunal Pratap Singh* and Suvaansh Bhambri* and Byeonghwi Kim*} and Roozbeh Mottaghi and Jonghyun Choi},
-  journal = {arXiv},
+  booktitle = {arXiv},
   year = {2021},
-  url  = {https://arxiv.org/abs/}
+  url  = {https://arxiv.org/abs/2012.03208}
 }
 ```
