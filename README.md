@@ -8,7 +8,7 @@
 <a href="http://ppolon.github.io/"> Jonghyun Choi </a>
 
 <b> MOCA </b> (<b>M</b>odular <b>O</b>bject-<b>C</b>entric <b>A</b>pproach) is a modular architecture that decouples a task into visual perception and action policy.
-The action policy module (APM) is responsiblefor sequential action prediction, whereas the visual perception module (VPM) generates pixel-wise interaction maskfor the objects of interest for manipulation.
+The action policy module (APM) is responsible for sequential action prediction, whereas the visual perception module (VPM) generates pixel-wise interaction mask for the objects of interest for manipulation.
 MOCA addresses long-horizon instruction following tasks based on egocentric RGB observations and natural language instructions on the <a href="https://github.com/askforalfred/alfred">ALFRED</a> benchmark.
 
 <img src="media/moca.png" alt="MOCA">
@@ -117,11 +117,11 @@ MIT License
 
 ## Citation
 ```
-@inproceedings{moca21,
+@inproceedings{moca20,
   title ={{MOCA: A Modular Object-Centric Approach for Interactive Instruction Following}},
   author={{Kunal Pratap Singh* and Suvaansh Bhambri* and Byeonghwi Kim*} and Roozbeh Mottaghi and Jonghyun Choi},
   booktitle = {arXiv},
-  year = {2021},
+  year = {2020},
   url  = {https://arxiv.org/abs/2012.03208}
 }
 ```
