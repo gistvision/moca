@@ -90,7 +90,7 @@ class EvalSubgoals(Eval):
         maskrcnn = maskrcnn.cuda()
 
         prev_image = None
-        prev_action = None
+        m_prev_action = None
         nav_actions = ['MoveAhead_25', 'RotateLeft_90', 'RotateRight_90', 'LookDown_15', 'LookUp_15']
         
         prev_class = 0
@@ -146,7 +146,7 @@ class EvalSubgoals(Eval):
 
                 # action prediction
                 action = m_pred['action_low']
-                if prev_image == curr_image and prev_action == action and prev_action in nav_actions and action in nav_actions and action == 'MoveAhead_25':
+                if prev_image == curr_image and m_prev_action == action and m_prev_action in nav_actions and action in nav_actions and action == 'MoveAhead_25':
                     dist_action = m_out['out_action_low'][0][0].detach().cpu()
                     idx_rotateR = model.vocab['action_low'].word2index('RotateRight_90')
                     idx_rotateL = model.vocab['action_low'].word2index('RotateLeft_90')
@@ -222,7 +222,7 @@ class EvalSubgoals(Eval):
             t += 1
 
             prev_image = curr_image
-            prev_action = action
+            m_prev_action = action
 
         # metrics
         pl = float(t - len(expert_init_actions)) + 1 # +1 for last action
