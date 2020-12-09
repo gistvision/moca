@@ -46,8 +46,8 @@ $ sh download_data.sh
 We provide our pretrained weight used for the experiments in the paper and the leaderboard submission.
 To download the pretrained weight of MOCA, use the command below.
 ```
-$ cd $ALFRED_ROOT/exp/pretrained
-$ sh download_pretrained_weight.sh
+$ cd $ALFRED_ROOT
+$ sh download_model.sh
 ```
 
 ## Training
