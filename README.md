@@ -42,7 +42,7 @@ $ sh download_data.sh
 ```
 **Note**: The downloaded data includes expert trajectories with both original and color-swapped frames.
 
-### Pretrained MOCA
+### Pretrained model
 We provide our pretrained weight used for the experiments in the paper and the leaderboard submission.
 To download the pretrained weight of MOCA, use the command below.
 ```
@@ -50,8 +50,7 @@ $ cd $ALFRED_ROOT/exp/pretrained
 $ sh download_pretrained_weight.sh
 ```
 
-### Pretrained Mask R-CNN
-We provide our pretrained Mask R-CNN weight used for the experiments in the paper and the leaderboard submission.
+We also provide our pretrained Mask R-CNN weight used for the experiments in the paper and the leaderboard submission.
 To download the pretrained weight of the Mask R-CNN, use the command below.
 ```
 $ cd $ALFRED_ROOT
