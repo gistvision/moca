@@ -109,11 +109,10 @@ MIT License
 
 ## Citation
 ```
-@article{singh20moca,
-  title     = {{MOCA: A Modular Object-Centric Approach for Interactive Instruction Following}},
-  author    = {Kunal Pratap Singh and Suvaansh Bhambri and Byeonghwi Kim and Roozbeh Mottaghi and Jonghyun Choi},
-  booktitle = {arXiv},
-  year      = {2020},
-  url       = {https://arxiv.org/abs/2012.03208}
+@article{singh2020moca,
+  title={MOCA: A Modular Object-Centric Approach for Interactive Instruction Following},
+  author={Singh, Kunal Pratap and Bhambri, Suvaansh and Kim, Byeonghwi and Mottaghi, Roozbeh and Choi, Jonghyun},
+  journal={arXiv preprint arXiv:2012.03208},
+  year={2020}
 }
 ```
