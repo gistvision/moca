@@ -94,6 +94,13 @@ If you want to evaluate our pretrained model saved in `exp/pretrained/pretrained
 python models/eval/eval_seq2seq.py --model_path "exp/pretrained/pretrained.pth" --eval_split valid_seen --gpu --num_threads 4 --subgoals all
 ```
 
+### Expected Validation Result
+| Model      | Seen SR(%)                  | Seen GC (%)                 | Unseen SR (%)           | Unseen GC (%)             |
+|:----------:|:---------------------------:|:---------------------------:|:-----------------------:|:-------------------------:|
+| Reported   | 19.15        (13.60)        | 28.50 (22.30)               | 3.78 (2.00)             | 13.40 (8.30)              |
+| Reproduced | 18.66\~19.27 (12.78\~13.63) | 27.79\~28.64 (21.50\~22.14) | 3.65\~3.78 (1.94\~1.99) | 13.40\~13.77 (8.22\~8.69) |
+**Note**: "Reproduced" denotes the success rates of the pretrained model that we provide.
+
 
 ## Hardware 
 Trained and Tested on:
