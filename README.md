@@ -34,6 +34,8 @@ $ pip install -r requirements.txt
 
 ## Download
 ### Dataset
+Currently, we are moving dataset to another server. We will update the new url for downloading.
+<!--
 Dataset includes visual features extracted by ResNet-18 with natural language annotations (~135.5GB after unzipping).
 For details of the ALFRED dataset, see the repository of <a href="https://github.com/askforalfred/alfred">ALFRED</a>.
 ```
@@ -41,6 +43,7 @@ $ cd $ALFRED_ROOT/data
 $ sh download_data.sh
 ```
 **Note**: The downloaded data includes expert trajectories with both original and color-swapped frames.
+-->
 
 ### Pretrained Model
 We provide our pretrained weight used for the experiments in the paper and the leaderboard submission.
