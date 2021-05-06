@@ -34,16 +34,27 @@ $ pip install -r requirements.txt
 
 ## Download
 ### Dataset
-Currently, we are moving dataset to another server. We will update the new url for downloading.
-<!--
 Dataset includes visual features extracted by ResNet-18 with natural language annotations (~135.5GB after unzipping).
+Download the dataset <a href="https://drive.google.com/file/d/14oTwEzK8DxXL5bIegD5EW5mYtX5OWYuP/view?usp=sharing">here</a>, put it in `data`, and unzip it by following the commands below.
 For details of the ALFRED dataset, see the repository of <a href="https://github.com/askforalfred/alfred">ALFRED</a>.
 ```
 $ cd $ALFRED_ROOT/data
-$ sh download_data.sh
+$ ls
+json_feat_2.1.0.7z  ...
+
+$ 7z x json_feat_2.1.0.7z -y && rm json_feat_2.1.0.7z
+$ ls
+json_feat_2.1.0  ...
+
+$ ls json_feat_2.1.0
+look_at_obj_in_light-AlarmClock-None-DeskLamp-301
+look_at_obj_in_light-AlarmClock-None-DeskLamp-302
+look_at_obj_in_light-AlarmClock-None-DeskLamp-303
+look_at_obj_in_light-AlarmClock-None-DeskLamp-304
+...
 ```
-**Note**: The downloaded data includes expert trajectories with both original and color-swapped frames.
--->
+**Note**: The downloaded data includes expert trajectories with both original and color-swapped frames' features.
+
 
 ### Pretrained Model
 We provide our pretrained weight used for the experiments in the paper and the leaderboard submission.
