@@ -34,6 +34,9 @@ $ pip install -r requirements.txt
 
 ## Download
 ### Dataset
+We are currently working on the release of our dataset with the original ResNet features and ones with data augmentation.
+We will update here when it's available.
+<!--
 Dataset includes visual features extracted by ResNet-18 with natural language annotations (~135.5GB after unzipping).
 Download the dataset <a href="https://drive.google.com/file/d/14oTwEzK8DxXL5bIegD5EW5mYtX5OWYuP/view?usp=sharing">here</a>, put it in `data`, and unzip it by following the commands below.
 For details of the ALFRED dataset, see the repository of <a href="https://github.com/askforalfred/alfred">ALFRED</a>.
@@ -54,6 +57,7 @@ look_at_obj_in_light-AlarmClock-None-DeskLamp-304
 ...
 ```
 **Note**: The downloaded data includes expert trajectories with both original and color-swapped frames' features.
+-->
 
 
 ### Pretrained Model
