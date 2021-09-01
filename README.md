@@ -61,12 +61,15 @@ look_at_obj_in_light-AlarmClock-None-DeskLamp-304
 
 
 ### Pretrained Model
+We will update the script to provide a pretrained model used for the paper.
+<!--
 We provide our pretrained weight used for the experiments in the paper and the leaderboard submission.
 To download the pretrained weight of MOCA, use the command below.
 ```
 $ cd $ALFRED_ROOT
 $ sh download_model.sh
 ```
+-->
 
 ## Training
 To train MOCA, run `train_seq2seq.py` with hyper-parameters below. <br>
@@ -113,13 +116,15 @@ python models/eval/eval_seq2seq.py --model_path "exp/pretrained/pretrained.pth" 
 ```
 
 ### Expected Validation Result
+This will be updated soon.
+<!--
 | Model      | Seen SR(%)                  | Seen GC (%)                 | Unseen SR (%)           | Unseen GC (%)             |
 |:----------:|:---------------------------:|:---------------------------:|:-----------------------:|:-------------------------:|
 | Reported   | 19.15        (13.60)        | 28.50 (22.30)               | 3.78 (2.00)             | 13.40 (8.30)              |
 | Reproduced | 18.66\~19.27 (12.78\~13.63) | 27.79\~28.64 (21.50\~22.14) | 3.65\~3.78 (1.94\~1.99) | 13.40\~13.77 (8.22\~8.69) |
 
 **Note**: "Reproduced" denotes the expected success rates of the pretrained model that we provide.
-
+-->
 
 ## Hardware 
 Trained and Tested on:
