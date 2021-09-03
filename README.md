@@ -1,15 +1,19 @@
 # MOCA
-<a href="http://arxiv.org/abs/2012.03208"> <b> MOCA: A Modular Object-Centric Approach for Interactive Instruction Following </b> </a>
+<a href="http://arxiv.org/abs/2012.03208"> <b> Factorizing Perception and Policy for Interactive Instruction Following </b> </a>
 <br>
 <a href="https://kunalmessi10.github.io/"> Kunal Pratap Singh* </a>,
 <a href="https://www.linkedin.com/in/suvaansh-bhambri-1784bab7/"> Suvaansh Bhambri* </a>,
 <a href="https://bhkim94.github.io/"> Byeonghwi Kim* </a>,
 <a href="http://roozbehm.info/"> Roozbeh Mottaghi </a>,
 <a href="http://ppolon.github.io/"> Jonghyun Choi </a>
+<br>
+<a href="http://iccv2021.thecvf.com/home"> ICCV 2021 </a>
 
 <b> MOCA </b> (<b>M</b>odular <b>O</b>bject-<b>C</b>entric <b>A</b>pproach) is a modular architecture that decouples a task into visual perception and action policy.
-The action policy module (APM) is responsible for sequential action prediction, whereas the visual perception module (VPM) generates pixel-wise interaction mask for the objects of interest for manipulation.
+The action policy module (APM) is responsible for sequential action prediction, whereas the interactive perception module (IPM) generates pixel-wise interaction mask for the objects of interest for manipulation.
 MOCA addresses long-horizon instruction following tasks based on egocentric RGB observations and natural language instructions on the <a href="https://github.com/askforalfred/alfred">ALFRED</a> benchmark.
+<br>
+(Prev: MOCA: A Modular Object-Centric Approach for Interactive Instruction Following)
 
 <img src="media/moca.png" alt="MOCA">
 
@@ -141,7 +145,7 @@ MIT License
 ## Citation
 ```
 @article{singh2020moca,
-  title={MOCA: A Modular Object-Centric Approach for Interactive Instruction Following},
+  title={Factorizing Perception and Policy for Interactive Instruction Following},
   author={Singh, Kunal Pratap and Bhambri, Suvaansh and Kim, Byeonghwi and Mottaghi, Roozbeh and Choi, Jonghyun},
   journal={arXiv preprint arXiv:2012.03208},
   year={2020}
