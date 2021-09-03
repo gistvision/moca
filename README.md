@@ -15,7 +15,7 @@ MOCA addresses long-horizon instruction following tasks based on egocentric RGB 
 <br>
 (Prev: MOCA: A Modular Object-Centric Approach for Interactive Instruction Following)
 
-<img src="media/moca.png" alt="MOCA">
+<img src="moca.png" alt="MOCA">
 
 
 ## Environment
