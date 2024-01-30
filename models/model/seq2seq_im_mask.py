@@ -63,7 +63,7 @@ class Module(Base):
 
         # paths
         self.root_path = os.getcwd()
-        self.feat_pt = 'feat_conv.pt'
+        self.feat_pt = 'feat_conv_panoramic.pt'
 
         # params
         self.max_subgoals = 25
@@ -143,9 +143,11 @@ class Module(Base):
             if load_frames and not self.test_mode:
                 root = self.get_task_root(ex)
                 if not swapColor:
-                    im = torch.load(os.path.join(root, self.feat_pt))
-                else:
-                    im = torch.load(os.path.join(root, 'feat_conv_colorSwap{}.pt'.format(swapColor)))
+                    im = torch.load(os.path.join(root, self.feat_pt))[2]
+                elif swapColor in [1, 2]:
+                    im = torch.load(os.path.join(root, 'feat_conv_colorSwap{}_panoramic.pt'.format(swapColor)))[2]
+                elif swapColor in [3, 4, 5, 6]:
+                    im = torch.load(os.path.join(root, 'feat_conv_onlyAutoAug{}_panoramic.pt'.format(swapColor - 2)))[2]
                 feat['frames'].append(im)
 
         # tensorization and padding
