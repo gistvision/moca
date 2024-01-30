@@ -67,7 +67,7 @@ class Module(nn.Module):
         valid_seen = [t for t in valid_seen if not t['task'] in not_perfect_list]
         valid_unseen = [t for t in valid_unseen if not t['task'] in not_perfect_list]
 
-        train = [(s, False) for s in train] + [(s, 1) for s in train] + [(s, 2) for s in train]
+        train = [(s, False) for s in train] + [(s, 1) for s in train] + [(s, 2) for s in train] + [(s, 3) for s in train] + [(s, 4) for s in train] + [(s, 5) for s in train] + [(s, 6) for s in train]
         valid_seen = [(s, False) for s in valid_seen]
         valid_unseen = [(s, False) for s in valid_unseen]
 
