@@ -37,7 +37,7 @@ $ pip install -r requirements.txt
 
 
 ## Download
-Download the ResNet-18 features and annotation files from the Hugging Face repo.
+Download the ResNet-18 features and annotation files from <a href="https://huggingface.co/datasets/byeonghwikim/abp_dataset">the Hugging Face repo</a>.
 ```
 git clone https://huggingface.co/byeonghwikim/abp_dataset data/json_feat_2.1.0
 ```
